@@ -1,1 +1,1 @@
-du -a /path | sort -n -r | head -n 10
+du -a /path 2>&1| sort -n -r | head -n 10 | grep -v 'Permission denied'
