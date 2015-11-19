@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+from fabric.api import env, run
+env.hosts = ['192.168.1.2','192.168.1.6']
+def deploy_lamp():
+  sudo("apt-get install -q apache2 mysql-server libapache2-mod-php5 php5-mysql")
