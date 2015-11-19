@@ -1,0 +1,10 @@
+You can run fab –help to view help information and a long list of available command line options.
+An important option is –fabfile=PATH that helps you to specify a different python module file to import other then fabfile.py.
+To specify a username to use when connecting to remote hosts, use the –user=USER option.
+To use password for authentication and/or sudo, use the –password=PASSWORD option.
+To print detailed info about command NAME, use –display=NAME option.
+To view formats use –list option, choices: short, normal, nested, use the –list-format=FORMAT option.
+To print list of possible commands and exit, include the –list option.
+You can specify the location of config file to use by using the –config=PATH option.
+To display a colored error output, use –colorize-errors.
+To view the program’s version number and exit, use the –version option.

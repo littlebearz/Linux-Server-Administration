@@ -1,0 +1,1 @@
+ffmpeg -i video.flv -hide_banner
