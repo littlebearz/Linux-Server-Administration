@@ -1,1 +1,8 @@
-du -a /path 2>&1| sort -n -r | head -n 10 | grep -v 'Permission denied'
+#Sorting using the currently files that are opened by the OS+Programs
+/usr/sbin/lsof -s | awk '$5 == "REG"' | sort -n -r -k 7,7 | head -n 50
+
+#Sorting via the current directory and ignoring permission
+du -a . 2>&1| sort -n -r | head -n 15 | grep -v 'Permission denied'
+
+#Sorting via find and ignoring permission denied
+find . -type f -path ./ignore_path -prune -o -mtime -1 2>&1 |  grep -v 'Permission denied'
