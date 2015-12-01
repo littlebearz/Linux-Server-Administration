@@ -1,0 +1,1 @@
+sudo smartctl --all /dev/sda | grep Power_On_Hours
