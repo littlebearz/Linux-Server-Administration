@@ -1,3 +1,4 @@
-make -j 4
+nice -n 19 make -j 4
 
 Where 4 is the 1.5x the number of cores
+where nice -n 19 means the lowest priority
