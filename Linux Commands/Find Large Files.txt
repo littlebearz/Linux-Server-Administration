@@ -9,3 +9,7 @@ find . -type f -path ./ignore_path -prune -o -mtime -1 2>&1 |  grep -v 'Permissi
 
 #Recursively search content within same directory and ignoring permission issue
 grep -r "content_goes_here" . 2>&1| grep -v 'Permission denied'
+
+#Find and dump all error into /dev/null , replace npm_lazy with the actual file name
+find / -name npm_lazy 2>/dev/null
+
