@@ -1,0 +1,7 @@
+sudo npm install -g npm_lazy
+
+npm_lazy --init > ~/npm_lazy.config.js
+
+npm_lazy --config ~/npm_lazy.config.js
+
+npm config set registry http://localhost:65534/
