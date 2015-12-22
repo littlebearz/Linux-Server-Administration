@@ -1,0 +1,2 @@
+compact /c /s "%PATH%" /i /Q
+source: http://www.tenforums.com/tutorials/26340-compress-uncompress-files-folders-windows-10-a.html
