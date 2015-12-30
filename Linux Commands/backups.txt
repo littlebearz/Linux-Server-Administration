@@ -1,0 +1,14 @@
+rsnapshot
+edit /etc/rsnapshot.conf
+
+For local backup the two important lines are:
+
+snapshot_root $dest/
+backup $source/ $hostname/
+
+For remote backup the one important line is:
+backup root@des.com:/home/ des.com/
+
+Cronjob:
+30 23 * * * /usr/bin/rsnapshot daily # daily backup is ran at 11:30 pm
+00 23 * * 7 /usr/bin/rsnapshot weekly # weekly backup is ran at 11:00pm # on Sunday
