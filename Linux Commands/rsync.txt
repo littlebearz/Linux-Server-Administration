@@ -1,0 +1,1 @@
+rsync -vaPe "ssh -p 22"
