@@ -1,0 +1,11 @@
+#!/bin/sh
+
+PIDS=`ps cax | grep hhvm | grep -v grep | grep -o '^[ ]*[0-9]*'`
+
+if [ -z "$PIDS" ]; then
+  /usr/bin/hhvm --config /etc/hhvm/php.ini --config /etc/hhvm/server.ini --user www-data --mode daemon -vPidFile=/var/run/hhvm/pid > /dev/null
+else
+  for PID in $PIDS; do
+        echo $PID
+  done
+fi
