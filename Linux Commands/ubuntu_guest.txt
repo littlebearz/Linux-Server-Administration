@@ -1,0 +1,3 @@
+sudo apt-get install build-essential linux-headers-$(uname -r);
+sudo apt-get install virtualbox-guest-x11;
+sudo apt-get install virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11;
