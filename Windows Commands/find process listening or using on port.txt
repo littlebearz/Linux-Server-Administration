@@ -1,0 +1,2 @@
+#Replace $PORT_NUMBER with actual port number
+for /f "tokens=5" %a in ('netstat -aon ^| findstr $PORT_NUMBER') do tasklist /FI "PID eq %a"
