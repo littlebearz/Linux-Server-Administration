@@ -1,3 +1,9 @@
+#Recursive Sort using the 5th column
+ls -lR | grep '^-' | sort -k 5 -rn
+
+#Same as above with full path
+find . -type f -exec du -h {} + | sort -r -h
+
 #Sorting using the currently files that are opened by the OS+Programs
 /usr/sbin/lsof -s | awk '$5 == "REG"' | sort -n -r -k 7,7 | head -n 50
 
@@ -12,7 +18,6 @@ grep -r "content_goes_here" . 2>&1| grep -v 'Permission denied'
 
 #Find and dump all error into /dev/null , replace npm_lazy with the actual file name
 find / -name npm_lazy 2>/dev/null
-
 
 #Find all old files >1yr and greater than 30 megabytes and ignore permission issue
 find / -type f -size +30M -mtime +365 2>/dev/null
