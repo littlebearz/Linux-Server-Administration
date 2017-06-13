@@ -1,0 +1,5 @@
+--Select XML
+SELECT 
+[xmlField].value('(/person//firstName/node())[1]', 'nvarchar(max)') as FirstName,
+[xmlField].value('(/person//lastName/node())[1]', 'nvarchar(max)') as LastName
+FROM [myTable]
