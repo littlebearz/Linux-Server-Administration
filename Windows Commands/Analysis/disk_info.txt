@@ -1,0 +1,1 @@
+wmic diskdrive list brief
