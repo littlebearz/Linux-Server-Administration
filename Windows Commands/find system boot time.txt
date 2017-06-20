@@ -1,0 +1,1 @@
+systeminfo | find "System Boot Time"

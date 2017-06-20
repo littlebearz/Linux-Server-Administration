@@ -1,0 +1,5 @@
+ALTER ROLE [db_datareader] ADD MEMBER [MyDomain\MyAccount] 
+GO
+
+ALTER ROLE [db_datareader] DROP MEMBER [MyDomain\MyAccount]
+GO

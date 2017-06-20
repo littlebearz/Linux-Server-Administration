@@ -1,0 +1,2 @@
+https://hexo.io/
+https://github.com/TryGhost/Ghost

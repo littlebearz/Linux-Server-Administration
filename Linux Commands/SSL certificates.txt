@@ -1,0 +1,5 @@
+#check expiration date
+echo | openssl s_client -connect $domain_goes_here:$port_goes_here 2>/dev/null | openssl x509 -noout -dates
+
+#check SHA2 or SHA1
+openssl s_client -connect $domain_goes_here:$port_goes_here < /dev/null 2>/dev/null  | openssl x509 -text -in /dev/stdin | grep "Signature Algorithm" | cut -d ":" -f2 | uniq | sed '/^$/d' | sed -e 's/^[ \t]*//';

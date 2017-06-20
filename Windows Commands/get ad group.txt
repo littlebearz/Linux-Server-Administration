@@ -1,0 +1,2 @@
+#Get AD Group information for a particular user on a domain
+gpresult /user $USERNAME /V

@@ -1,0 +1,2 @@
+eventvwr.exe
+system -> filter -> 1074, 6006, 6008

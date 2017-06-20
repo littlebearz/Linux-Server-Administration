@@ -1,0 +1,1 @@
+mtr --report --report-cycles 1000 myserver.tld > myserver.txt

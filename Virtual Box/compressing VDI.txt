@@ -1,0 +1,10 @@
+Linux:
+vboxmanage modifyhd /mnt/path/vm_name.vdi --compact
+
+
+Windows:
+1. Download SDelete from Microsoft's TechNet
+http://technet.microsoft.com/en-us/sysinternals/bb897443.aspx
+2. Usage: sdelete.exe -z
+
+VBoxManage.exe modifyhd Z:\path\to\vm_name.vdi --compact
