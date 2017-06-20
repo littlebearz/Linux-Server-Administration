@@ -4,7 +4,7 @@
 # buffer space changes
 
 # Requests per second
-RQS="15"
+RQS="5"
 
 # Requests per 7 seconds
 RQH="35"
