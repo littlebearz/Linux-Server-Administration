@@ -1,0 +1,2 @@
+#To find what exe is using the dll files
+tasklist /M libvlc.dll
