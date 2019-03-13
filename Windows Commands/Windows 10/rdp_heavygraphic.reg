@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+[HKEY_CURRENT_USER\Software\Microsoft\Terminal Server Client]
+"Min Send Interval"=dword:00000001
+"Keep Alive Interval"=dword:00000001
+"BitmapCacheSize"=dword:0000ffff
+"Order Draw Threshold"=dword:00000001
