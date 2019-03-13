@@ -2,4 +2,8 @@
 SELECT 
 [xmlField].value('(/person//firstName/node())[1]', 'nvarchar(max)') as FirstName,
 [xmlField].value('(/person//lastName/node())[1]', 'nvarchar(max)') as LastName
+<<<<<<< HEAD
 FROM [myTable]
+=======
+FROM [myTable]
+>>>>>>> 261d390844b5b27ba369fd6f3e0534d9f46cd921

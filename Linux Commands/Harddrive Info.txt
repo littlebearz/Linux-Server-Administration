@@ -1,3 +1,6 @@
 sudo smartctl --all /dev/sda | grep Power_On_Hours
 
 ncdu
+
+#find disk usage
+du -sk *

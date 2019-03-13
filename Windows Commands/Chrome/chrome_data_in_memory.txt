@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --user-data-dir="Z:\i7-6700k-chrome" --disk-cache-dir="Z:\i7-6700k-chrome\Cache" --directory-download="Z:\"

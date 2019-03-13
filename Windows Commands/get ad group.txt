@@ -1,2 +1,5 @@
 #Get AD Group information for a particular user on a domain
-gpresult /user $USERNAME /V
+gpresult /user $USERNAME$ /V
+
+#Find out if a user is locked out via powershell
+Get-ADUser $USERNAME$ -Properties * | Select-Object LockedOut

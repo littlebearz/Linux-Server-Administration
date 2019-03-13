@@ -1,0 +1,6 @@
+select [name] as ObjectName, Type as ObjectType, *
+from Sys.Objects
+where 1=1
+and [Name] like '%INSERT_OBJECT_NAME_GOES_HERE%'
+
+SELECT name from sys.objects WHERE object_id ='INSERT_ID_HERE'
