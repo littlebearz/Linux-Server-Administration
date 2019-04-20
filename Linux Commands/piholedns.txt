@@ -1,0 +1,1 @@
+cat -v  pihole.log | grep $1 | grep ANY | awk '{print $8}' | sort | uniq -u
