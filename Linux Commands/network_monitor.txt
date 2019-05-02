@@ -1,0 +1,2 @@
+#bandwidth monitor for 100kb+
+iftop -BPm 1048576
