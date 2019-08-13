@@ -1,5 +1,5 @@
 #Optional: Creating your own CA Authority 
-$ openssl req -new -x509 -days 3650 -extensions v3_ca -keyout private/cakey.pem -out cacert.pem
+openssl req -new -x509 -days 3650 -extensions v3_ca -keyout private/cakey.pem -out cacert.pem
 #Generate the CSR to be sent to Certificate Authority
 openssl req -out sslcert.csr -newkey rsa:4096 -nodes -keyout private/private.key -config ssl.cnf
 #Self Signing SSL Certificate
