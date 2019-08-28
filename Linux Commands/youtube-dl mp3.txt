@@ -1,0 +1,6 @@
+sudo wget https://yt-dl.org/latest/youtube-dl -O /usr/local/bin/youtube-dl
+              sudo chmod a+x /usr/local/bin/youtube-dl
+              hash -r
+
+
+youtube-dl --extract-audio --audio-format mp3 "URL"
