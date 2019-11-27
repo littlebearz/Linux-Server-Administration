@@ -1,3 +1,4 @@
+#Requirement Linux kernel 5.0+
 vim /etc/sysctl.conf 
 Append the following
 
