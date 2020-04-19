@@ -1,4 +1,6 @@
-sudo iptables -A INPUT -s $IP_GOES_HERE -j DROP
+#!/bin/bash
+echo 'Banning IP = ' $0
+sudo iptables -A INPUT -s $0 -j DROP
 
 #View the Banned IP
 sudo iptables -L -v
