@@ -1,0 +1,2 @@
+#Powershell
+Get-Content \\SERVER\FOLDER\LOGFILE -Tail 30 -Wait
