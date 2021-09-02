@@ -4,3 +4,9 @@ ncdu
 
 #find disk usage
 du -sk *
+
+#http://linux.dell.com/wiki/index.php/Repository/OMSA#Yum_setup
+yum install srvadmin-all
+$ omreport storage vdisk
+$ omreport storage pdisk controller=0
+$ omreport storage vdisk controller=0 vdisk=1
