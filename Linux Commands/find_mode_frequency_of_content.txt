@@ -1,0 +1,5 @@
+#Convert csv file to new lines, then trim it, sort, get uniq value and counter, reverse list so most common goes top, cut the top 10
+cat tester.csv | tr , '\n' | grep "\S" | sort | uniq -c | sort -nr  | head -10
+
+#similar but uses replacement of tr
+<tester.csv tr -c '[:alnum:]' '[\n*]' | sort|uniq -c|sort -nr|head  -10
