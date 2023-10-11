@@ -1,0 +1,2 @@
+#to take a screenshot
+Windows Key + Left Shift + S
