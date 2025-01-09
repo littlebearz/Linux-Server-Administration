@@ -1,0 +1,7 @@
+#!/bin/bash
+alias ghpc="git push -u origin HEAD && gh pr create --fill"
+#gh is github command line
+#For windows user, you can use chocolatey to install it.
+#choco install gh 
+alias ghph="gh pr merge --squash --delete-branch --auto"
+alias ghpcm="ghpc && ghpm"
