@@ -1,10 +1,34 @@
-uptime
-dmesg | tail
-vmstat 1
-mpstat -P ALL 1
-pidstat 1
-iostat -xz 1
-free -m
-sar -n DEV 1
-sar -n TCP,ETCP 1
-top
+1. uptime
+Displays current system uptime and active time
+
+2. dmesg | tail
+Shows the last few lines of system log messages (can be used to troubleshoot issues)
+
+3. vmstat 1
+Displays virtual memory statistics every second (shows CPU usage, page faults, etc.)
+
+4. mpstat -P ALL 1
+Monitors multi-core processor usage and idle times every second
+
+5. pidstat 1
+Shows process information, such as CPU usage, memory usage, and I/O statistics, for each process every second (can be used to monitor specific processes)
+
+6. iostat -xz 1
+Displays disk statistics (including reads, writes, and latency) every second
+
+7. free -m
+Shows free memory, used memory, and available memory in megabytes (useful for checking system resources)
+
+8. sar -n DEV 1
+Monitors system performance on a specific device (such as disk or network) every second
+
+9. sar -n TCP,ETCP 1
+Analyzes system performance statistics related to TCP and ETCP protocols (useful for monitoring network traffic)
+
+10. top
+Displays real-time system activity, including CPU usage, memory usage, and process information
+
+
+
+
+
