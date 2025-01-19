@@ -1,0 +1,78 @@
+{
+  "models": [
+    {
+      "model": "llama3.2",
+      "title": "llama3.2",
+      "provider": "ollama",
+      "apiBase": "http://100.64.0.16:11434"
+    },
+    {
+      "model": "phi4",
+      "title": "Microsoft Phi-4",
+      "apiBase": "http://100.64.0.16:11434",
+      "provider": "ollama"
+    },
+    {
+      "title": "DeepSeek Coder",
+      "model": "deepseek-7b",
+      "apiBase": "http://100.64.0.16:11434",
+      "provider": "ollama"
+    },
+    {
+      "title": "Sky-T1-32B-Preview",
+      "model": "hengwen/Sky-T1-32B-Preview:q4_k_m",
+      "apiBase": "http://100.64.0.16:11434",
+      "provider": "ollama"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "deepseek-coder-v2:16b",
+    "model": "deepseek-coder-v2:16b",
+    "apiBase": "http://100.64.0.16:11434",
+    "provider": "ollama"
+  },
+  "contextProviders": [
+    {
+      "name": "code",
+      "params": {}
+    },
+    {
+      "name": "docs",
+      "params": {}
+    },
+    {
+      "name": "diff",
+      "params": {}
+    },
+    {
+      "name": "terminal",
+      "params": {}
+    },
+    {
+      "name": "problems",
+      "params": {}
+    },
+    {
+      "name": "folder",
+      "params": {}
+    },
+    {
+      "name": "codebase",
+      "params": {}
+    }
+  ],
+  "slashCommands": [
+    {
+      "name": "share",
+      "description": "Export the current chat session to markdown"
+    },
+    {
+      "name": "cmd",
+      "description": "Generate a shell command"
+    },
+    {
+      "name": "commit",
+      "description": "Generate a git commit message"
+    }
+  ]
+}
