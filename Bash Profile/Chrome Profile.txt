@@ -1,0 +1,1 @@
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 1" --profile-directory="C:\a\temp\profile" --user-data-dir="C:\a\profile\userdata"
