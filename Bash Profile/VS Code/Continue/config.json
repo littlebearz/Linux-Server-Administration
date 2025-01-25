@@ -1,14 +1,14 @@
 {
   "models": [
     {
-      "model": "llama3.2",
-      "title": "llama3.2",
-      "provider": "ollama",
-      "apiBase": "http://100.64.0.16:11434"
-    },
-    {
       "model": "phi4",
       "title": "Microsoft Phi-4",
+      "apiBase": "http://100.64.0.16:11434",
+      "provider": "ollama"
+    },
+    {
+      "model": "AUTODETECT",
+      "title": "Autodetect",
       "apiBase": "http://100.64.0.16:11434",
       "provider": "ollama"
     },
@@ -19,15 +19,17 @@
       "provider": "ollama"
     },
     {
-      "title": "Sky-T1-32B-Preview",
-      "model": "hengwen/Sky-T1-32B-Preview:q4_k_m",
+      "title": "DeepSeek Reasoning 8B",
+      "model": "deepseek-r1:8b",
       "apiBase": "http://100.64.0.16:11434",
       "provider": "ollama"
     }
+
+
   ],
   "tabAutocompleteModel": {
-    "title": "deepseek-coder-v2:16b",
-    "model": "deepseek-coder-v2:16b",
+    "title": "DeepSeek Coder",
+    "model": "deepseek-7b",
     "apiBase": "http://100.64.0.16:11434",
     "provider": "ollama"
   },
