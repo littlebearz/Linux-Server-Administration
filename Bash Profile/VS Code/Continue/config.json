@@ -3,25 +3,25 @@
     {
       "model": "phi4",
       "title": "Microsoft Phi-4",
-      "apiBase": "http://100.64.0.16:11434",
+      "apiBase": "http://desktop-12900k.bear.internal:11434",
       "provider": "ollama"
     },
     {
       "model": "AUTODETECT",
       "title": "Autodetect",
-      "apiBase": "http://100.64.0.16:11434",
+      "apiBase": "http://desktop-12900k.bear.internal:11434",
       "provider": "ollama"
     },
     {
       "title": "DeepSeek Coder",
       "model": "deepseek-7b",
-      "apiBase": "http://100.64.0.16:11434",
+      "apiBase": "http://desktop-12900k.bear.internal:11434",
       "provider": "ollama"
     },
     {
       "title": "DeepSeek Reasoning 8B",
       "model": "deepseek-r1:8b",
-      "apiBase": "http://100.64.0.16:11434",
+      "apiBase": "http://desktop-12900k.bear.internal:11434",
       "provider": "ollama"
     }
 
@@ -30,7 +30,7 @@
   "tabAutocompleteModel": {
     "title": "DeepSeek Coder",
     "model": "deepseek-7b",
-    "apiBase": "http://100.64.0.16:11434",
+    "apiBase": "http://desktop-12900k.bear.internal:11434",
     "provider": "ollama"
   },
   "contextProviders": [
