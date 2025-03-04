@@ -1,4 +1,5 @@
 #!/bin/bash
+# Ban an IP address using iptables
 if [ "$1" != "" ]; then
   echo 'Banning IP = ' $1
   sudo iptables -A INPUT -s $1 -j DROP
@@ -6,5 +7,14 @@ else
   echo "First Parameter is missing, please input IP"
 fi
 
-#View the Banned IP
+#View the Banned IP:
 sudo iptables -L -v
+
+# Unban an IP address using iptables
+if [ "$1" == "unban" ];then
+sudo iptables -D INPUT -s $2 -j DROP
+
+#Generate Helper Text when parameter is /?:
+elif [ "$1" == "/?" ] || [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+  echo "Usage: ban_ip.sh IP or unban_ip.sh unban IP"
+fi
