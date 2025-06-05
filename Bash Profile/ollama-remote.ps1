@@ -3,78 +3,105 @@
     Sends a prompt to a remote Ollama server and returns a paragraph-style response.
     Automatically installs itself to %USERPROFILE%\Scripts\ on first run.
 
+.PARAMETER Prompt
+    The prompt to send to the Ollama server.
+
+.PARAMETER DebugMode
+    Enables debug output for troubleshooting.
+
 .EXAMPLE
     .\ollama-remote.ps1 "Summarize the causes of World War I."
+    .\ollama-remote.ps1 -DebugMode -Prompt "What is the current time?"
 #>
+[CmdletBinding()]
+Param (
+    [Parameter(Mandatory=$true, Position=0, ValueFromRemainingArguments=$true)]
+    [string]$Prompt,
+    [switch]$DebugMode
+)
 
-# === AUTO-INSTALL TO USER SCRIPTS ===
+$DebugPreference = if ($DebugMode) { "Continue" } else { "SilentlyContinue" }
+
+### AUTO-INSTALL TO USER SCRIPTS
+Write-Debug "Checking script installation..."
 $targetDir = "$HOME\Scripts"
 $targetFile = Join-Path $targetDir "ollama-remote.ps1"
 
-# If script is not running from the target location, copy it there
 if ($MyInvocation.MyCommand.Path -ne $targetFile) {
+    Write-Debug "Script not in target location, installing to $targetFile"
     if (-not (Test-Path $targetDir)) {
+        Write-Debug "Creating directory $targetDir"
         New-Item -ItemType Directory -Path $targetDir | Out-Null
     }
 
     Copy-Item -Path $MyInvocation.MyCommand.Path -Destination $targetFile -Force
-    Write-Host "`n✅ Script installed to: $targetFile"
-
-    # Offer to update PATH if not already present
-    if ($env:Path -notlike "*$targetDir*") {
-        Write-Host "ℹ️ Adding '$targetDir' to your PATH for future use..."
-        $newPath = "$env:Path;$targetDir"
-        [Environment]::SetEnvironmentVariable("Path", $newPath, "User")
-        Write-Host "✅ Added to PATH. Restart terminal to use from anywhere (e.g., 'ollama-remote.ps1').`n"
-    }
-
+    Write-Host "Info: Relaunching script from installed location..."
+    $newPath = "$env:Path;$targetDir"
+    Write-Debug "Updating PATH with $newPath"
+    [Environment]::SetEnvironmentVariable("Path", $newPath, "User")
+    Write-Host "Success: Added to PATH. Restart terminal to use from anywhere (e.g. ollama-remote.ps1)."
     Start-Sleep -Seconds 1
-    Write-Host "🔁 Relaunching script from installed location...`n"
-    & "$targetFile" @args
-    exit
+    Write-Debug "Relaunching script with args: $Prompt"
+    & $targetFile -Prompt $Prompt -DebugMode:$DebugMode
+    exit 0
 }
 
 # === CONFIGURATION ===
 $ollamaHost = "http://desktop-12900k.bear.internal:11434"   # Replace with your remote Ollama server
 $model = "phi4"
-
-# === CHECK FOR PROMPT ===
-if ($args.Count -eq 0) {
-    Write-Host "`nUsage: ollama-remote.ps1 `"Your prompt here`"`n"
-    exit 1
-}
+Write-Debug "Configuration: Host=$ollamaHost, Model=$model"
 
 # === GET PROMPT & TIME ===
-$prompt = $args -join " "
 $localTime = Get-Date -Format "dddd, MMMM dd, yyyy HH:mm:ss zzz"
-$fullPrompt = "As of now, the local time is $localTime. $prompt"
+# For time-related prompts, return local time directly
+if ($Prompt -match "(?i)\b(time|clock|hour|minute|second)\b") {
+    Write-Debug "Time-related prompt detected, returning local time"
+    Write-Output "The current time is $localTime." | Out-String
+    exit 0
+}
+# Otherwise, prepend time to non-time-related prompts
+$fullPrompt = "As of now, the local time is $localTime. $Prompt"
+Write-Debug "Full prompt: $fullPrompt"
 
 # === BUILD JSON BODY ===
 $body = @{
     model  = $model
     prompt = $fullPrompt
-    stream = $true
+    stream = $false
 } | ConvertTo-Json -Depth 2
+Write-Debug "JSON body: $body"
 
 # === MAKE REQUEST ===
 try {
-    $response = Invoke-RestMethod -Uri "$ollamaHost/api/generate" `
-        -Method Post `
-        -Body $body `
-        -ContentType "application/json"
+    Write-Debug "Sending request to $ollamaHost/api/generate"
+    $response = Invoke-RestMethod -Uri "$ollamaHost/api/generate" -Method Post -Body $body -ContentType "application/json"
+    Write-Debug "Raw response: $($response | ConvertTo-Json -Depth 2 -ErrorAction SilentlyContinue)"
 } catch {
-    Write-Host "`n❌ Failed to connect to Ollama server at $ollamaHost"
-    Write-Host $_.Exception.Message
+    Write-Host "Error: Failed to connect to Ollama server at $ollamaHost"
+    Write-Debug "Request error: $_"
     exit 1
 }
 
 # === PRINT PARAGRAPH OUTPUT ===
-if ($response) {
-    if ($response -is [System.Collections.IEnumerable]) {
-        ($response | ForEach-Object { $_.response }) -join "" | Write-Output
+try {
+    Write-Debug "Processing response..."
+    if ($response) {
+        Write-Debug "Response is single object"
+        Write-Debug "Response.response content: $($response.response)"
+        if ($response.response) {
+            Write-Output $response.response.Trim() | Out-String
+        } else {
+            Write-Host "Error: Response.response is empty or null"
+            Write-Debug "Full response: $($response | ConvertTo-Json -Depth 2 -ErrorAction SilentlyContinue)"
+            exit 1
+        }
     } else {
-        Write-Output $response.response
+        Write-Host "Error: No response received from server"
+        Write-Debug "Empty response received"
+        exit 1
     }
-} else {
-    Write-Host "No response received."
+} catch {
+    Write-Host "Error processing response: $_"
+    Write-Debug "Response processing error: $_"
+    exit 1
 }
