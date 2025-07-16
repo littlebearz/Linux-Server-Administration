@@ -1,0 +1,74 @@
+---
+name: LittleBearZ
+version: 0.0.5
+schema: v1
+models:
+- name: deepseek-r1:14b
+  provider: ollama
+  model: deepseek-r1:14b
+  apiBase: "http://desktop-12900k.bear.internal:11434"
+  roles:
+    - chat
+    - edit
+    - apply
+    - autocomplete
+- name: Microsoft Phi-4
+  provider: ollama
+  model: phi4
+  apiBase: "http://desktop-12900k.bear.internal:11434"
+  roles:
+    - chat
+    - edit
+    - apply
+    - autocomplete
+- name: QWEN2.5
+  provider: ollama
+  model: qwen2.5-coder:32b
+  apiBase: "http://desktop-12900k.bear.internal:11434"
+  roles:
+    - chat
+    - edit
+    - apply
+    - autocomplete
+- name: llama3.2
+  provider: ollama
+  model: llama3.2:latest
+  apiBase: "http://desktop-12900k.bear.internal:11434"
+  roles:
+    - chat
+    - edit
+    - apply
+    - autocomplete
+- name: deepseek-r1:8b
+  provider: ollama
+  model: deepseek-r1:8b
+  apiBase: "http://desktop-12900k.bear.internal:11434"
+  roles:
+    - chat
+    - edit
+    - apply
+    - autocomplete
+- name: deepseek-coder-v2
+  provider: ollama
+  model: deepseek-coder-v2:latest
+  apiBase: "http://desktop-12900k.bear.internal:11434"
+  roles:
+    - chat
+    - edit
+    - apply
+    - autocomplete
+- name: qwen3:14b
+  provider: ollama
+  model: qwen3:14b
+  apiBase: "http://desktop-12900k.bear.internal:11434"
+  roles:
+    - chat
+    - edit
+    - apply
+    - autocomplete
+- name: nomic-embed-text
+  provider: ollama
+  model: nomic-embed-text
+  apiBase: "http://desktop-12900k.bear.internal:11434"
+  roles:
+    - embed
