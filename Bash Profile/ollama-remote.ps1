@@ -47,8 +47,8 @@ if ($MyInvocation.MyCommand.Path -ne $targetFile) {
 }
 
 # === CONFIGURATION ===
-$ollamaHost = "http://desktop-12900k.bear.internal:11434"   # Replace with your remote Ollama server
-$model = "phi4"
+$ollamaHost = "http://eoli-12900k.bear.internal:11434"   # Replace with your remote Ollama server
+$model = "gpt-oss"
 Write-Debug "Configuration: Host=$ollamaHost, Model=$model"
 
 # === GET PROMPT & TIME ===
