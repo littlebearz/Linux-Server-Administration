@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-OLLAMA_HOST="http://desktop-12900k.bear.internal:11434"  # Replace with your network Ollama server
-MODEL="phi4"
+OLLAMA_HOST="http://eoli-12900k.bear.internal:11434"  # Replace with your network Ollama server
+MODEL="gpt-oss"
 PROMPT="$*"
 
 # Exit if no prompt is provided
