@@ -1,36 +1,28 @@
 {
   "models": [
     {
-      "model": "phi4",
-      "title": "Microsoft Phi-4",
-      "apiBase": "http://desktop-12900k.bear.internal:11434",
-      "provider": "ollama"
-    },
-    {
       "model": "AUTODETECT",
       "title": "Autodetect",
-      "apiBase": "http://desktop-12900k.bear.internal:11434",
+      "apiBase": "http://eoli-12900k.bear.internal:11434/",
       "provider": "ollama"
     },
     {
-      "title": "DeepSeek Coder",
-      "model": "deepseek-7b",
-      "apiBase": "http://desktop-12900k.bear.internal:11434",
-      "provider": "ollama"
-    },
-    {
-      "title": "DeepSeek Reasoning 8B",
-      "model": "deepseek-r1:8b",
-      "apiBase": "http://desktop-12900k.bear.internal:11434",
+      "title": "qwen3-coder",
+      "model": "qwen3-coder:latest",
+      "apiBase": "http://eoli-12900k.bear.internal:11434/",
       "provider": "ollama"
     }
-
-
+    , {
+      "title": "mistral-nemo:12b",
+      "model": "mistral-nemo:12b",
+      "apiBase": "http://eoli-12900k.bear.internal:11434/",
+      "provider": "ollama"
+    }
   ],
   "tabAutocompleteModel": {
-    "title": "DeepSeek Coder",
-    "model": "deepseek-7b",
-    "apiBase": "http://desktop-12900k.bear.internal:11434",
+    "title": "qwen3-coder",
+    "model": "qwen3-coder:latest",
+    "apiBase": "http://eoli-12900k.bear.internal:11434/v1/",
     "provider": "ollama"
   },
   "contextProviders": [
